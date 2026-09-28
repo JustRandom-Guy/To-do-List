@@ -29,8 +29,8 @@ there after a page refresh.
 - **Create, read, update, delete (CRUD) tasks** — add a new task, edit any field of an existing
   task, delete a task and mark it as complete or reopen it.
 - **Filter by status** — `All`, `Active` and `Completed` tabs, each showing a live count.
-- **Categories / tags** — every task belongs to one of `Work`, `Personal`, `Urgent` or `Study`,
-  shown as a coloured pill.
+- **Organise into categories** — every task belongs to one of `Work`, `Personal`, `Urgent` or `Study`,
+  shown as a small coloured tag.
 - **Persistence with `localStorage`** — tasks, filters and the chosen theme are all restored after
   a refresh, using a reusable `useLocalStorage` hook.
 - **Live task counts** — total, remaining, completed and overdue counts, plus a progress bar that
@@ -45,7 +45,7 @@ there after a page refresh.
 - **Drag-and-drop reordering** — tasks can be dragged into a new order using the browser's
   built-in HTML5 drag and drop, with no extra library.
 - **Due dates with visual indicators** — due dates show as `Due today`, `Due tomorrow`,
-  `Overdue by 3 days` and so on, and overdue tasks get a red border and a pulsing label.
+  `Overdue by 3 days` and so on, and overdue tasks get a red border and a red label.
 - **Dark / light theme toggle** — the choice is remembered in `localStorage` and applied through
   CSS variables.
 - **Search box** — filter tasks by title, notes or category as you type.
@@ -88,9 +88,11 @@ taskflow-todo-app/
 ├── vercel.json                Rewrite rule so React Router works when deployed
 ├── vite.config.js             Vite configuration
 ├── README.md                  This file
+├── public/
+│   └── favicon.svg            The brand mark shown on the browser tab
 ├── docs/
-│   ├── TaskFlow-Project-Report.docx   APA 7th edition project report
-│   └── screenshots/                    Screenshots used in the report and README
+│   ├── TaskFlow-Project-Documentation.docx   APA 7th edition project documentation
+│   └── screenshots/                           Screenshots used in the README and the documentation
 └── src/
     ├── main.jsx               Connects App to the DOM (createRoot)
     ├── App.jsx                Root component: routes + shared task state
@@ -98,7 +100,7 @@ taskflow-todo-app/
     ├── index.css              Design tokens (CSS variables) and base styles
     ├── constants.js           Categories, priorities, filters, storage keys
     ├── components/            Reusable, presentational components
-    │   ├── CategoryBadge.jsx  Coloured category pill
+    │   ├── CategoryBadge.jsx  Coloured category tag
     │   ├── CategoryBadge.css
     │   ├── ConfirmDialog.jsx  Delete confirmation modal
     │   ├── ConfirmDialog.css
@@ -206,6 +208,9 @@ in your browser and the app is running.
 
 ## Screenshots
 
+All ten screenshots are also reproduced with captions and descriptions in
+[`docs/TaskFlow-Project-Documentation.docx`](docs/TaskFlow-Project-Documentation.docx).
+
 ### 1. Add / edit form, live summary panel and filter bar
 
 The form is a controlled form: every field is validated before the task is saved, and the panel
@@ -213,37 +218,59 @@ below it shows the totals updating live.
 
 ![Add task form and summary panel](docs/screenshots/01-home-form.png)
 
-### 2. Task list with categories, priorities, due dates and drag-and-drop
+### 2. Task list with categories, priorities, due dates and reordering
 
-Each task shows a coloured category pill, a priority label and a due-date label. Overdue tasks are
+Each task shows a coloured category tag, a priority label and a due-date label. Overdue tasks are
 highlighted in red. Tasks can be dragged by the grip handle, or moved with the arrow buttons.
 
-![Task list](docs/screenshots/02-home-tasklist.png)
+![Task list](docs/screenshots/02-task-list.png)
 
-### 3. Statistics page — KPI cards and completion rate
+### 3. Editing an existing task
+
+Pressing the pencil icon loads the task values into the same form and turns the submit button
+into Save changes.
+
+![Edit mode](docs/screenshots/07-edit-mode.png)
+
+### 4. Delete confirmation dialog
+
+Nothing is deleted immediately — the dialog names the task and asks for confirmation.
+
+![Delete confirmation](docs/screenshots/08-delete-confirm.png)
+
+### 5. Filtered to `Active` only
+
+The status tabs, the search box and the dropdown filters all combine together, and the tab counts
+update to match.
+
+![Active filter](docs/screenshots/06-filtered-active.png)
+
+### 6. Empty state when nothing matches the filters
+
+![Empty state](docs/screenshots/09-empty-state.png)
+
+### 7. Statistics page — summary cards and completion rate
 
 A second route built with React Router, showing total, remaining, completed, overdue and the
 completion rate.
 
-![Statistics page](docs/screenshots/03-stats-top.png)
+![Statistics page](docs/screenshots/03-stats-overview.png)
 
-### 4. Statistics page — per-category breakdown
+### 8. Statistics page — per-category breakdown
 
 Each category gets a progress bar showing how much of that category is already completed.
 
 ![Category breakdown](docs/screenshots/04-stats-breakdown.png)
 
-### 5. Light theme
+### 9. Light theme
 
 The theme button in the header switches the whole interface between the dark and light palettes.
 
 ![Light theme](docs/screenshots/05-light-theme.png)
 
-### 6. Filtered to `Active` only
+### 10. Not found page
 
-The status tabs, the search box and the dropdown filters all combine together.
-
-![Active filter](docs/screenshots/06-active-filter.png)
+![Not found page](docs/screenshots/10-not-found.png)
 
 ---
 
