@@ -21,6 +21,7 @@ export default function TaskList({
   onDragOver,
   onDrop,
   onDragEnd,
+  onMove,
   canReorder,
 }) {
   // Conditional rendering #1: nothing to show.
@@ -36,13 +37,16 @@ export default function TaskList({
   return (
     <div className="task-list">
       <ul className="task-list__items">
-        {tasks.map((task) => (
+        {tasks.map((task, index) => (
           <TaskItem
             key={task.id}
             task={task}
             onToggle={onToggle}
             onEdit={onEdit}
             onDelete={onDelete}
+            onMove={onMove}
+            isFirst={index === 0}
+            isLast={index === tasks.length - 1}
             isDragging={draggingId === task.id}
             canReorder={canReorder}
             onDragStart={onDragStart}

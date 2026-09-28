@@ -15,8 +15,15 @@ import './App.css'
  * main data flow pattern used in this project.
  */
 export default function App() {
-  const { tasks, addTask, updateTask, deleteTask, toggleTask, clearCompleted, reorderTasks } =
-    useTasks()
+  const {
+    tasks,
+    addTask,
+    updateTask,
+    deleteTask,
+    toggleTask,
+    clearCompleted,
+    reorderTasks,
+  } = useTasks()
 
   return (
     <BrowserRouter>
@@ -35,6 +42,7 @@ export default function App() {
                   deleteTask={deleteTask}
                   toggleTask={toggleTask}
                   clearCompleted={clearCompleted}
+                  reorderTasks={reorderTasks}
                 />
               }
             />

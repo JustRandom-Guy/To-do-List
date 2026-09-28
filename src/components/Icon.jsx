@@ -142,6 +142,18 @@ const PATHS = {
       <line x1="10" y1="18" x2="14" y2="18" />
     </>
   ),
+  arrowUp: (
+    <>
+      <line x1="12" y1="19" x2="12" y2="5" />
+      <polyline points="6 11 12 5 18 11" />
+    </>
+  ),
+  arrowDown: (
+    <>
+      <line x1="12" y1="5" x2="12" y2="19" />
+      <polyline points="6 13 12 19 18 13" />
+    </>
+  ),
 }
 
 /**

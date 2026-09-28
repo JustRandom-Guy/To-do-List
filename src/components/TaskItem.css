@@ -166,6 +166,27 @@
   cursor: grab;
 }
 
+.task-item__move {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.task-item__move .icon-btn {
+  width: 26px;
+  height: 22px;
+}
+
+.task-item__move .icon-btn:disabled {
+  opacity: 0.28;
+  cursor: not-allowed;
+}
+
+.task-item__move .icon-btn:disabled:hover {
+  background: none;
+  color: var(--color-text-muted);
+}
+
 .icon-btn {
   width: 32px;
   height: 32px;

@@ -21,17 +21,23 @@ export default function Home({
   deleteTask,
   toggleTask,
   clearCompleted,
+  reorderTasks,
 }) {
   const { filters, setFilter, resetFilters, visibleTasks, hasActiveFilters } = useFilters(tasks)
 
-  // Local UI state: which task is being edited, and which one is waiting
-  // for delete confirmation.
+  // Local UI state: which task is being edited, which one is waiting
+  // for delete confirmation and which one is being dragged.
   const [editingId, setEditingId] = useState(null)
   const [pendingDeleteId, setPendingDeleteId] = useState(null)
+  const [draggingId, setDraggingId] = useState(null)
 
   const stats = useMemo(() => getTaskStats(tasks), [tasks])
   const editingTask = tasks.find((task) => task.id === editingId) || null
   const pendingDeleteTask = tasks.find((task) => task.id === pendingDeleteId) || null
+
+  // Reordering only makes sense in the manual order - if the list is
+  // sorted another way the order is decided by the sort option.
+  const canReorder = filters.sortBy === 'manual'
 
   // Counts shown inside the All / Active / Completed tabs.
   const tabCounts = {
@@ -61,6 +67,46 @@ export default function Home({
       if (editingId === pendingDeleteTask.id) setEditingId(null)
     }
     setPendingDeleteId(null)
+  }
+
+  // --- Drag and drop ------------------------------------------------------
+  // The browser's built-in HTML5 drag and drop API is used, so no extra
+  // library is needed.
+
+  function handleDragStart(event, id) {
+    setDraggingId(id)
+    event.dataTransfer.effectAllowed = 'move'
+    // Firefox needs some data set for a drag to actually start.
+    event.dataTransfer.setData('text/plain', id)
+  }
+
+  function handleDragOver(event) {
+    // Without preventDefault the browser will refuse the drop.
+    event.preventDefault()
+    event.dataTransfer.dropEffect = 'move'
+  }
+
+  function handleDrop(event, targetId) {
+    event.preventDefault()
+    const fromIndex = tasks.findIndex((task) => task.id === draggingId)
+    const toIndex = tasks.findIndex((task) => task.id === targetId)
+
+    if (fromIndex !== -1 && toIndex !== -1 && fromIndex !== toIndex) {
+      reorderTasks(fromIndex, toIndex)
+    }
+    setDraggingId(null)
+  }
+
+  function handleDragEnd() {
+    setDraggingId(null)
+  }
+
+  /** Keyboard friendly alternative to dragging a task up or down. */
+  function handleMove(id, direction) {
+    const currentIndex = tasks.findIndex((task) => task.id === id)
+    const nextIndex = currentIndex + direction
+    if (currentIndex === -1 || nextIndex < 0 || nextIndex >= tasks.length) return
+    reorderTasks(currentIndex, nextIndex)
   }
 
   return (
@@ -93,6 +139,13 @@ export default function Home({
           Showing <strong>{visibleTasks.length}</strong> of{' '}
           <strong>{tasks.length}</strong> task{tasks.length === 1 ? '' : 's'}
         </p>
+        {canReorder ? (
+          <p className="home__hint">Drag a task, or use the arrows, to reorder it.</p>
+        ) : (
+          <p className="home__hint">
+            Set &ldquo;Sort&rdquo; back to <strong>Manual order</strong> to reorder tasks.
+          </p>
+        )}
       </div>
 
       <TaskList
@@ -102,12 +155,13 @@ export default function Home({
         onToggle={toggleTask}
         onEdit={handleEdit}
         onDelete={setPendingDeleteId}
-        draggingId={null}
-        canReorder={false}
-        onDragStart={() => {}}
-        onDragOver={() => {}}
-        onDrop={() => {}}
-        onDragEnd={() => {}}
+        onMove={handleMove}
+        draggingId={draggingId}
+        canReorder={canReorder}
+        onDragStart={handleDragStart}
+        onDragOver={handleDragOver}
+        onDrop={handleDrop}
+        onDragEnd={handleDragEnd}
       />
 
       <ConfirmDialog

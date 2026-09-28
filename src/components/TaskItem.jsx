@@ -19,6 +19,9 @@ export default function TaskItem({
   onDragOver,
   onDrop,
   onDragEnd,
+  onMove,
+  isFirst,
+  isLast,
   isDragging,
   canReorder,
 }) {
@@ -81,6 +84,30 @@ export default function TaskItem({
         </div>
 
         <div className="task-item__actions">
+          {canReorder && (
+            <div className="task-item__move">
+              <button
+                type="button"
+                className="icon-btn"
+                onClick={() => onMove(task.id, -1)}
+                disabled={isFirst}
+                aria-label={`Move ${task.title} up`}
+                title="Move up"
+              >
+                <Icon name="arrowUp" size={15} />
+              </button>
+              <button
+                type="button"
+                className="icon-btn"
+                onClick={() => onMove(task.id, 1)}
+                disabled={isLast}
+                aria-label={`Move ${task.title} down`}
+                title="Move down"
+              >
+                <Icon name="arrowDown" size={15} />
+              </button>
+            </div>
+          )}
           {canReorder && (
             <span className="task-item__grip" title="Drag to reorder">
               <Icon name="grip" size={18} />
