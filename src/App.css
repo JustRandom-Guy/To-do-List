@@ -7,61 +7,60 @@
 .app__main {
   flex: 1;
   width: 100%;
-  max-width: var(--page-max);
+  max-width: var(--page-width);
   margin: 0 auto;
-  padding: 28px 20px 48px;
+  padding: 24px 20px 40px;
 }
 
 .app__footer {
-  border-top: 1px solid var(--color-border);
-  background: var(--color-bg-soft);
+  border-top: 1px solid var(--border);
 }
 
 .app__footer p {
-  max-width: var(--page-max);
+  max-width: var(--page-width);
   margin: 0 auto;
-  padding: 18px 20px;
-  color: var(--color-text-faint);
-  font-size: 0.85rem;
+  padding: 16px 20px;
+  color: var(--text-faint);
+  font-size: 0.82rem;
   text-align: center;
 }
 
-/* Page heading shared by every page */
 .page-title {
-  font-size: 1.6rem;
+  font-size: 1.45rem;
   margin-bottom: 4px;
 }
 
 .page-subtitle {
-  color: var(--color-text-muted);
-  font-size: 0.95rem;
-  margin-bottom: 24px;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  margin-bottom: 20px;
 }
 
 .not-found {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   text-align: center;
-  padding: 52px 24px;
-  color: var(--color-warning);
+  padding: 48px 20px;
+  color: var(--danger);
 }
 
 .not-found .page-title {
   margin-top: 6px;
+  color: var(--text);
 }
 
 .not-found .page-subtitle {
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 @media (max-width: 640px) {
   .app__main {
-    padding: 20px 14px 36px;
+    padding: 18px 14px 32px;
   }
 
   .page-title {
-    font-size: 1.35rem;
+    font-size: 1.25rem;
   }
 }

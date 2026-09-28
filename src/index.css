@@ -1,79 +1,85 @@
 /* ==========================================================================
-   TaskFlow - Global Styles & Design Tokens
-   Everything is driven by CSS variables so a light theme can be swapped in
-   by adding the [data-theme="light"] block below.
+   TaskFlow - Global Styles and Design Tokens
+
+   All colours live here as CSS variables. Components never hard-code a
+   colour, so the whole interface can be switched between the dark and
+   the light palette by changing the data-theme attribute on <html>.
    ========================================================================== */
 
 :root {
-  /* Base surfaces (dark theme is the default) */
-  --color-bg: #0b0d10;
-  --color-bg-soft: #0f1318;
-  --color-surface: #151a21;
-  --color-surface-2: #1c222b;
-  --color-border: #2b333f;
-  --color-border-strong: #3b4654;
+  /* Page and surface colours */
+  --bg: #16181b;
+  --bg-soft: #1b1e22;
+  --surface: #1f2226;
+  --surface-2: #262a2f;
+  --border: #33383e;
+  --border-strong: #474d55;
 
-  /* Text */
-  --color-text: #f3f6fa;
-  --color-text-muted: #a2aebd;
-  --color-text-faint: #6f7d8d;
+  /* Text colours */
+  --text: #e7e9eb;
+  --text-muted: #9aa1a9;
+  --text-faint: #6d747c;
 
-  /* Brand + status accents (bright enough to read on black) */
-  --color-primary: #5b8cff;
-  --color-primary-soft: rgba(91, 140, 255, 0.16);
-  --color-success: #2ee6a8;
-  --color-success-soft: rgba(46, 230, 168, 0.14);
-  --color-warning: #ffb020;
-  --color-warning-soft: rgba(255, 176, 32, 0.14);
-  --color-danger: #ff6060;
-  --color-danger-soft: rgba(255, 96, 96, 0.14);
+  /* One main colour for the app, plus the three status colours */
+  --primary: #4a6cf7;
+  --primary-dark: #3a58d4;
+  --primary-soft: #1d2437;
+  --success: #37a06c;
+  --success-soft: #172a20;
+  --warning: #c98a1a;
+  --warning-soft: #2a2214;
+  --danger: #d1495b;
+  --danger-soft: #2c1a1e;
 
-  /* Category / priority colours */
-  --color-work: #6c8cff;
-  --color-personal: #2ee6a8;
-  --color-urgent: #ff6060;
-  --color-study: #c792ea;
+  /* Category tag colours */
+  --work: #5b8dd6;
+  --personal: #4f9d7a;
+  --urgent: #cf5b5b;
+  --study: #8a7cc0;
+  --work-soft: #1b2430;
+  --personal-soft: #17271f;
+  --urgent-soft: #2c1a1c;
+  --study-soft: #23202f;
 
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
-  --shadow-lg: 0 18px 48px rgba(0, 0, 0, 0.55);
+  --radius: 6px;
+  --radius-lg: 8px;
 
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 18px;
-  --radius-pill: 999px;
+  --font: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: Consolas, "Cascadia Mono", "Courier New", monospace;
 
-  --font-sans: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-mono: "Cascadia Mono", Consolas, "Courier New", monospace;
-
-  --page-max: 1100px;
-  --transition: 160ms ease;
+  --page-width: 980px;
 }
 
-[data-theme="light"] {
-  --color-bg: #f4f6fb;
-  --color-bg-soft: #eaeef7;
-  --color-surface: #ffffff;
-  --color-surface-2: #f0f3f9;
-  --color-border: #d7dde8;
-  --color-border-strong: #b9c2d1;
+[data-theme='light'] {
+  --bg: #f2f3f5;
+  --bg-soft: #e9ebee;
+  --surface: #ffffff;
+  --surface-2: #f0f2f5;
+  --border: #d5d9de;
+  --border-strong: #b6bcc4;
 
-  --color-text: #101418;
-  --color-text-muted: #4a5563;
-  --color-text-faint: #7c8797;
+  --text: #14171a;
+  --text-muted: #4d545c;
+  --text-faint: #7c838b;
 
-  --color-primary: #2f5fe0;
-  --color-primary-soft: rgba(47, 95, 224, 0.1);
-  --color-success: #0f9d6b;
-  --color-success-soft: rgba(15, 157, 107, 0.12);
-  --color-warning: #b06d00;
-  --color-warning-soft: rgba(176, 109, 0, 0.12);
-  --color-danger: #d63c3c;
-  --color-danger-soft: rgba(214, 60, 60, 0.1);
+  --primary: #2f52d0;
+  --primary-dark: #24409f;
+  --primary-soft: #e4eafc;
+  --success: #1f7a4f;
+  --success-soft: #e0f1e7;
+  --warning: #96660d;
+  --warning-soft: #f7edd8;
+  --danger: #b8323f;
+  --danger-soft: #fae5e7;
 
-  --shadow-sm: 0 1px 2px rgba(16, 20, 24, 0.08);
-  --shadow-md: 0 8px 24px rgba(16, 20, 24, 0.1);
-  --shadow-lg: 0 18px 48px rgba(16, 20, 24, 0.14);
+  --work: #2f5f9e;
+  --personal: #2b7256;
+  --urgent: #a83a3a;
+  --study: #5c4f8a;
+  --work-soft: #e4ecf6;
+  --personal-soft: #e2f0e9;
+  --urgent-soft: #f7e4e4;
+  --study-soft: #eae7f3;
 }
 
 * {
@@ -82,15 +88,11 @@
   padding: 0;
 }
 
-html {
-  -webkit-text-size-adjust: 100%;
-}
-
 body {
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  font-family: var(--font-sans);
-  font-size: 16px;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 15px;
   line-height: 1.6;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
@@ -98,20 +100,18 @@ body {
 
 h1,
 h2,
-h3,
-h4 {
-  line-height: 1.25;
-  font-weight: 700;
-  letter-spacing: -0.01em;
+h3 {
+  line-height: 1.3;
+  font-weight: 600;
 }
 
 button {
   font-family: inherit;
   font-size: inherit;
-  cursor: pointer;
-  border: none;
-  background: none;
   color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 input,
@@ -119,6 +119,7 @@ select,
 textarea {
   font-family: inherit;
   font-size: inherit;
+  color: inherit;
 }
 
 ul,
@@ -127,7 +128,7 @@ ol {
 }
 
 a {
-  color: var(--color-primary);
+  color: var(--primary);
   text-decoration: none;
 }
 
@@ -136,27 +137,24 @@ a:hover {
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-  border-radius: 4px;
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
 }
 
 ::selection {
-  background: var(--color-primary);
+  background: var(--primary);
   color: #ffffff;
 }
 
-/* Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
-  height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-bg-soft);
+  background: var(--bg-soft);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-border-strong);
-  border-radius: var(--radius-pill);
+  background: var(--border-strong);
+  border-radius: 5px;
 }
