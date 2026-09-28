@@ -1,0 +1,18 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.home__result-count {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--color-text-muted);
+  font-size: 0.87rem;
+}
+
+.home__result-count strong {
+  color: var(--color-text);
+}
