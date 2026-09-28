@@ -1,0 +1,6 @@
+# Auto detect line endings and keep source files consistent between machines
+* text=auto eol=lf
+
+# Windows / editor specific
+*.bat binary
+*.cmd binary
