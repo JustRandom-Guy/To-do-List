@@ -1,29 +1,23 @@
 .header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background: color-mix(in srgb, var(--color-bg) 88%, transparent);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--color-border);
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
 }
 
 .header__inner {
-  max-width: var(--page-max);
+  max-width: var(--page-width);
   margin: 0 auto;
   padding: 14px 20px;
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 16px;
   flex-wrap: wrap;
 }
 
-/* --- Brand ------------------------------------------------------------- */
 .brand {
   display: flex;
   align-items: center;
-  gap: 12px;
-  color: var(--color-text);
-  text-decoration: none;
+  gap: 10px;
+  color: var(--text);
   margin-right: auto;
 }
 
@@ -32,89 +26,77 @@
 }
 
 .brand__mark {
-  width: 42px;
-  height: 42px;
+  width: 34px;
+  height: 34px;
   display: grid;
   place-items: center;
-  border-radius: var(--radius-md);
-  background: linear-gradient(135deg, var(--color-primary), #7b5bff);
+  border-radius: var(--radius);
+  background: var(--primary);
   color: #ffffff;
-  box-shadow: 0 6px 18px rgba(91, 140, 255, 0.35);
 }
 
 .brand__text {
   display: flex;
   flex-direction: column;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
 .brand__text strong {
-  font-size: 1.15rem;
-  letter-spacing: -0.02em;
+  font-size: 1.05rem;
 }
 
 .brand__text small {
-  color: var(--color-text-faint);
+  color: var(--text-faint);
   font-size: 0.75rem;
 }
 
-/* --- Navigation -------------------------------------------------------- */
 .nav {
   display: flex;
-  gap: 6px;
-  padding: 4px;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-pill);
+  gap: 4px;
 }
 
 .nav__link {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  padding: 8px 16px;
-  border-radius: var(--radius-pill);
-  color: var(--color-text-muted);
+  gap: 6px;
+  padding: 7px 12px;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  color: var(--text-muted);
   font-size: 0.9rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background var(--transition), color var(--transition);
+  font-weight: 500;
 }
 
 .nav__link:hover {
-  background: var(--color-surface-2);
-  color: var(--color-text);
+  background: var(--surface);
+  color: var(--text);
   text-decoration: none;
 }
 
 .nav__link.is-active {
-  background: var(--color-primary-soft);
-  color: var(--color-primary);
+  background: var(--primary-soft);
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
-/* --- Theme button ------------------------------------------------------ */
 .theme-toggle {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 9px 15px;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-pill);
-  background: var(--color-surface);
-  color: var(--color-text-muted);
+  gap: 6px;
+  padding: 7px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text-muted);
   font-size: 0.85rem;
-  font-weight: 600;
-  transition: border-color var(--transition), color var(--transition),
-    background var(--transition);
+  font-weight: 500;
 }
 
 .theme-toggle:hover {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
-  background: var(--color-primary-soft);
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
-/* --- Mobile ------------------------------------------------------------ */
 @media (max-width: 640px) {
   .header__inner {
     padding: 12px 14px;
@@ -128,20 +110,14 @@
   .nav {
     order: 3;
     width: 100%;
-    justify-content: center;
   }
 
   .nav__link {
     flex: 1;
     justify-content: center;
-    padding: 8px 10px;
   }
 
   .theme-toggle span {
     display: none;
-  }
-
-  .theme-toggle {
-    padding: 9px 12px;
   }
 }
