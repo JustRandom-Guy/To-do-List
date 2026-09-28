@@ -1,0 +1,72 @@
+.confirm-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(3, 5, 8, 0.72);
+  backdrop-filter: blur(3px);
+  animation: fade-in 140ms ease;
+}
+
+.confirm {
+  width: 100%;
+  max-width: 380px;
+  padding: 26px 24px 22px;
+  text-align: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  animation: pop-in 160ms ease;
+}
+
+.confirm__icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  background: var(--color-danger-soft);
+  color: var(--color-danger);
+}
+
+.confirm h3 {
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+
+.confirm p {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  overflow-wrap: break-word;
+}
+
+.confirm__actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
