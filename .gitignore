@@ -1,6 +1,5 @@
 node_modules
 dist
-docs/assets
 docs/*.docx
 .DS_Store
 *.local
