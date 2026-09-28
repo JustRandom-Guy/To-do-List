@@ -1,5 +1,4 @@
 node_modules
 dist
-docs/*.docx
 .DS_Store
 *.local
