@@ -1,25 +1,22 @@
 .task-item {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-left: 4px solid var(--color-border-strong);
-  border-radius: var(--radius-md);
-  transition: border-color var(--transition), transform var(--transition),
-    box-shadow var(--transition), opacity var(--transition);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--border-strong);
+  border-radius: var(--radius);
 }
 
 .task-item:hover {
-  border-color: var(--color-border-strong);
-  box-shadow: var(--shadow-md);
+  border-color: var(--border-strong);
 }
 
 .task-item.is-completed {
-  border-left-color: var(--color-success);
-  background: color-mix(in srgb, var(--color-success) 6%, var(--color-surface));
+  border-left-color: var(--success);
+  background: var(--success-soft);
 }
 
 .task-item.is-overdue {
-  border-left-color: var(--color-danger);
-  background: color-mix(in srgb, var(--color-danger) 8%, var(--color-surface));
+  border-left-color: var(--danger);
+  background: var(--danger-soft);
 }
 
 .task-item.is-reorderable {
@@ -27,190 +24,166 @@
 }
 
 .task-item.is-dragging {
-  opacity: 0.45;
-  transform: scale(0.99);
-  box-shadow: var(--shadow-lg);
+  opacity: 0.5;
 }
 
 .task-item__main {
   display: flex;
   align-items: flex-start;
-  gap: 13px;
-  padding: 15px 16px;
+  gap: 11px;
+  padding: 12px 14px;
 }
 
-/* --- Round checkbox ----------------------------------------------------- */
 .task-item__check {
   flex-shrink: 0;
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   margin-top: 2px;
   display: grid;
   place-items: center;
-  border: 2px solid var(--color-border-strong);
+  border: 2px solid var(--border-strong);
   border-radius: 50%;
   color: #ffffff;
-  transition: background var(--transition), border-color var(--transition);
 }
 
 .task-item__check:hover {
-  border-color: var(--color-success);
+  border-color: var(--success);
 }
 
 .task-item__check.is-checked {
-  background: var(--color-success);
-  border-color: var(--color-success);
+  background: var(--success);
+  border-color: var(--success);
 }
 
-/* --- Text --------------------------------------------------------------- */
 .task-item__body {
   flex: 1;
   min-width: 0;
 }
 
 .task-item__title {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--color-text);
+  font-size: 0.97rem;
+  font-weight: 500;
+  color: var(--text);
   overflow-wrap: break-word;
 }
 
 .task-item.is-completed .task-item__title {
   text-decoration: line-through;
-  color: var(--color-text-faint);
+  color: var(--text-faint);
 }
 
 .task-item__notes {
-  margin-top: 3px;
-  font-size: 0.87rem;
-  color: var(--color-text-muted);
+  margin-top: 2px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
   overflow-wrap: break-word;
 }
 
-/* --- Meta row ----------------------------------------------------------- */
 .task-item__meta {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   flex-wrap: wrap;
-  margin-top: 9px;
+  margin-top: 8px;
 }
 
 .priority,
 .due-date {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  padding: 3px 10px;
-  border-radius: var(--radius-pill);
-  background: var(--color-surface-2);
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--surface-2);
   font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--color-text-muted);
+  font-weight: 500;
+  color: var(--text-muted);
   white-space: nowrap;
 }
 
 .priority--high {
-  color: var(--color-danger);
-  background: var(--color-danger-soft);
+  color: var(--danger);
+  background: var(--danger-soft);
 }
 
 .priority--medium {
-  color: var(--color-warning);
-  background: var(--color-warning-soft);
+  color: var(--warning);
+  background: var(--warning-soft);
 }
 
 .priority--low {
-  color: var(--color-success);
-  background: var(--color-success-soft);
+  color: var(--success);
+  background: var(--success-soft);
 }
 
 .due-date--upcoming {
-  color: var(--color-primary);
-  background: var(--color-primary-soft);
+  color: var(--primary);
+  background: var(--primary-soft);
 }
 
 .due-date--today {
-  color: var(--color-warning);
-  background: var(--color-warning-soft);
+  color: var(--warning);
+  background: var(--warning-soft);
 }
 
 .due-date--overdue {
-  color: var(--color-danger);
-  background: var(--color-danger-soft);
-  animation: pulse 2s ease-in-out infinite;
+  color: var(--danger);
+  background: var(--danger-soft);
+  font-weight: 600;
 }
 
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.6;
-  }
-}
-
-/* --- Action buttons ----------------------------------------------------- */
 .task-item__actions {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 3px;
   flex-shrink: 0;
 }
 
 .task-item__grip {
   display: grid;
   place-items: center;
-  color: var(--color-text-faint);
+  color: var(--text-faint);
   cursor: grab;
 }
 
 .task-item__move {
   display: flex;
   flex-direction: column;
-  gap: 2px;
 }
 
 .task-item__move .icon-btn {
-  width: 26px;
-  height: 22px;
+  width: 24px;
+  height: 20px;
 }
 
 .task-item__move .icon-btn:disabled {
-  opacity: 0.28;
+  opacity: 0.25;
   cursor: not-allowed;
 }
 
-.task-item__move .icon-btn:disabled:hover {
-  background: none;
-  color: var(--color-text-muted);
-}
-
 .icon-btn {
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   display: grid;
   place-items: center;
-  border-radius: var(--radius-sm);
-  color: var(--color-text-muted);
-  transition: background var(--transition), color var(--transition);
+  border-radius: var(--radius);
+  color: var(--text-muted);
 }
 
 .icon-btn:hover {
-  background: var(--color-surface-2);
-  color: var(--color-primary);
+  background: var(--surface-2);
+  color: var(--text);
 }
 
 .icon-btn--danger:hover {
-  background: var(--color-danger-soft);
-  color: var(--color-danger);
+  background: var(--danger-soft);
+  color: var(--danger);
 }
 
 @media (max-width: 640px) {
   .task-item__main {
-    padding: 13px 12px;
-    gap: 10px;
+    padding: 11px 10px;
+    gap: 9px;
   }
 
   .task-item__actions {

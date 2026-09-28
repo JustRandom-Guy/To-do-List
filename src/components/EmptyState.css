@@ -2,36 +2,35 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  padding: 48px 24px;
+  gap: 8px;
+  padding: 40px 20px;
   text-align: center;
-  background: var(--color-surface);
-  border: 1px dashed var(--color-border-strong);
+  background: var(--surface);
+  border: 1px dashed var(--border-strong);
   border-radius: var(--radius-lg);
 }
 
 .empty-state__icon {
   display: grid;
   place-items: center;
-  width: 66px;
-  height: 66px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
-  background: var(--color-primary-soft);
-  color: var(--color-primary);
-  margin-bottom: 4px;
+  background: var(--surface-2);
+  color: var(--text-faint);
+  margin-bottom: 2px;
 }
 
 .empty-state h3 {
-  font-size: 1.05rem;
-  color: var(--color-text);
+  font-size: 1rem;
 }
 
 .empty-state p {
-  max-width: 380px;
-  color: var(--color-text-muted);
+  max-width: 360px;
+  color: var(--text-muted);
   font-size: 0.9rem;
 }
 
 .empty-state .btn {
-  margin-top: 8px;
+  margin-top: 6px;
 }

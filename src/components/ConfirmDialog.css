@@ -5,68 +5,44 @@
   display: grid;
   place-items: center;
   padding: 20px;
-  background: rgba(3, 5, 8, 0.72);
-  backdrop-filter: blur(3px);
-  animation: fade-in 140ms ease;
+  background: rgba(0, 0, 0, 0.6);
 }
 
 .confirm {
   width: 100%;
-  max-width: 380px;
-  padding: 26px 24px 22px;
+  max-width: 360px;
+  padding: 22px 20px 20px;
   text-align: center;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
-  animation: pop-in 160ms ease;
 }
 
 .confirm__icon {
   display: grid;
   place-items: center;
-  width: 52px;
-  height: 52px;
-  margin: 0 auto 14px;
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 12px;
   border-radius: 50%;
-  background: var(--color-danger-soft);
-  color: var(--color-danger);
+  background: var(--danger-soft);
+  color: var(--danger);
 }
 
 .confirm h3 {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   margin-bottom: 6px;
 }
 
 .confirm p {
-  color: var(--color-text-muted);
+  color: var(--text-muted);
   font-size: 0.9rem;
   overflow-wrap: break-word;
 }
 
 .confirm__actions {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   justify-content: center;
-  margin-top: 20px;
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes pop-in {
-  from {
-    opacity: 0;
-    transform: scale(0.94) translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
+  margin-top: 18px;
 }
