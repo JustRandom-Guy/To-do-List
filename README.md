@@ -85,6 +85,7 @@ taskflow-todo-app/
 ├── .oxlintrc.json
 ├── index.html                 Entry HTML file
 ├── package.json               Scripts and dependencies
+├── vercel.json                Rewrite rule so React Router works when deployed
 ├── vite.config.js             Vite configuration
 ├── README.md                  This file
 ├── docs/
@@ -280,6 +281,8 @@ The status tabs, the search box and the dropdown filters all combine together.
   icon set like Lucide or Feather would provide.
 - **No offline service worker.** The app needs to be served over HTTP to run, so it cannot be
   installed as a PWA.
+- **Not deployed yet.** A `vercel.json` with a rewrite rule is included, so the app can be deployed
+  to Vercel with no extra configuration, but no live link is published at the time of writing.
 
 ---
 
