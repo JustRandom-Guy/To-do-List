@@ -1,0 +1,130 @@
+.stats-panel {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 16px 18px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.stats-panel__items {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  background: var(--color-bg-soft);
+  border: 1px solid var(--color-border);
+}
+
+.stat .icon {
+  flex-shrink: 0;
+}
+
+.stat div {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.stat strong {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.stat span {
+  font-size: 0.72rem;
+  color: var(--color-text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.stat--total {
+  color: var(--color-primary);
+}
+
+.stat--active {
+  color: var(--color-warning);
+}
+
+.stat--done {
+  color: var(--color-success);
+}
+
+.stat--overdue {
+  color: var(--color-danger);
+}
+
+.stat--overdue strong {
+  color: var(--color-text);
+}
+
+.stat div strong,
+.stat div span {
+  color: var(--color-text);
+}
+
+.stat div span {
+  color: var(--color-text-faint);
+}
+
+/* --- Progress ----------------------------------------------------------- */
+.stats-panel__progress {
+  flex: 1;
+  min-width: 180px;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.progress-label strong {
+  color: var(--color-success);
+}
+
+.progress-track {
+  height: 9px;
+  border-radius: var(--radius-pill);
+  background: var(--color-bg-soft);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, var(--color-primary), var(--color-success));
+  transition: width 320ms ease;
+}
+
+@media (max-width: 640px) {
+  .stats-panel {
+    gap: 14px;
+  }
+
+  .stats-panel__items {
+    width: 100%;
+  }
+
+  .stat {
+    flex: 1;
+    justify-content: center;
+    padding: 8px 6px;
+  }
+}
