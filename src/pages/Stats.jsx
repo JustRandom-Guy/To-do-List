@@ -21,16 +21,16 @@ export default function Stats({ tasks }) {
       {/* Top KPI cards */}
       <section className="stats__grid">
         <article className="kpi">
-          <span className="kpi__icon kpi__icon--total">
-            <Icon name="list" size={20} />
+          <span className="kpi__icon">
+            <Icon name="list" size={16} />
           </span>
           <p className="kpi__value">{stats.total}</p>
           <p className="kpi__label">Total tasks</p>
         </article>
 
         <article className="kpi">
-          <span className="kpi__icon kpi__icon--active">
-            <Icon name="target" size={20} />
+          <span className="kpi__icon">
+            <Icon name="target" size={16} />
           </span>
           <p className="kpi__value">{stats.active}</p>
           <p className="kpi__label">Remaining</p>
@@ -38,7 +38,7 @@ export default function Stats({ tasks }) {
 
         <article className="kpi">
           <span className="kpi__icon kpi__icon--done">
-            <Icon name="check" size={20} />
+            <Icon name="check" size={16} />
           </span>
           <p className="kpi__value">{stats.completed}</p>
           <p className="kpi__label">Completed</p>
@@ -46,7 +46,7 @@ export default function Stats({ tasks }) {
 
         <article className="kpi">
           <span className="kpi__icon kpi__icon--overdue">
-            <Icon name="alert" size={20} />
+            <Icon name="alert" size={16} />
           </span>
           <p className="kpi__value">{stats.overdue}</p>
           <p className="kpi__label">Overdue</p>
@@ -54,7 +54,7 @@ export default function Stats({ tasks }) {
 
         <article className="kpi kpi--wide">
           <span className="kpi__icon kpi__icon--done">
-            <Icon name="chart" size={20} />
+            <Icon name="chart" size={16} />
           </span>
           <p className="kpi__value">{stats.percent}%</p>
           <p className="kpi__label">Completion rate</p>
@@ -111,7 +111,7 @@ export default function Stats({ tasks }) {
 
         <div className="stats__callout">
           <span className="stats__callout-icon">
-            <Icon name="target" size={20} />
+            <Icon name="target" size={18} />
           </span>
           <p>
             You have <strong>{stats.active}</strong> active task{stats.active === 1 ? '' : 's'} left.
